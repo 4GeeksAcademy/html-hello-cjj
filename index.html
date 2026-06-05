@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Instagram Clone</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .top-icons i {
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .active-icon {
+            color: blue;
+        }
+
+        .post-card {
+            max-width: 500px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🔷 NAVBAR -->
+    <nav class="navbar bg-light px-3">
+        <span class="navbar-brand mb-0 h1">
+            <i class="fa-brands fa-instagram"></i> Instagram
+        </span>
+
+        <div class="d-flex gap-2">
+            <button class="btn btn-success">Create a new post</button>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="fa fa-gear"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li>
+                        <hr>
+                    </li>
+                    <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔷 ICONOS CAMBIO DE VISTA -->
+    <div class="text-center mt-3 top-icons">
+        <i class="fa-solid fa-table-cells active-icon" id="gridView"></i>
+        <i class="fa-solid fa-square" id="postView"></i>
+    </div>
+
+    <!-- 🔷 VISTA GRID (ALBUM) -->
+    <div id="gridSection" class="container mt-4">
+        <div class="row g-3">
+
+            <div class="col-md-4"><img src="https://picsum.photos/id/1015/500" class="img-fluid"></div>
+            <div class="col-md-4"><img src="https://picsum.photos/id/1025/500" class="img-fluid"></div>
+            <div class="col-md-4"><img src="https://picsum.photos/id/1035/500" class="img-fluid"></div>
+
+            <div class="col-md-4"><img src="https://picsum.photos/id/1045/500" class="img-fluid mb-3"></div>
+            <div class="col-md-4"><img src="https://picsum.photos/id/1055/500" class="img-fluid mb-3"></div>
+            <div class="col-md-4"><img src="https://picsum.photos/id/1065/500" class="img-fluid mb-3"></div>
+
+
+        </div>
+    </div>
+
+    <!-- 🔷 VISTA POSTS -->
+    <div id="postSection" class="mt-4 d-none">
+
+        <!-- POST 1 -->
+        <div class="card post-card mb-4">
+            <div class="card-header d-flex justify-content-between">
+                <strong>My Crazy dog Spark!</strong>
+                <span>08/26</span>
+            </div>
+            <img src="https://picsum.photos/id/237/600" class="card-img-top p-1">
+            <div class="card-body">
+                <p><strong>204 Likes</strong></p>
+                <p>This is an example of a very good photo that you can post on instagram</p>
+            </div>
+        </div>
+
+        <!-- POST 2 -->
+        <div class="card post-card mb-4">
+            <div class="card-header d-flex justify-content-between">
+                <strong>Beautiful City View</strong>
+                <span>09/10</span>
+            </div>
+            <img src="https://picsum.photos/id/1011/600" class="card-img-top p-1">
+            <div class="card-body">
+                <p><strong>350 Likes</strong></p>
+                <p>Amazing place to visit someday!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 🔷 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const gridBtn = document.getElementById("gridView");
+        const postBtn = document.getElementById("postView");
+        const grid = document.getElementById("gridSection");
+        const post = document.getElementById("postSection");
+
+        gridBtn.addEventListener("click", () => {
+            grid.classList.remove("d-none");
+            post.classList.add("d-none");
+            gridBtn.classList.add("active-icon");
+            postBtn.classList.remove("active-icon");
+        });
+
+        postBtn.addEventListener("click", () => {
+            grid.classList.add("d-none");
+            post.classList.remove("d-none");
+            postBtn.classList.add("active-icon");
+            gridBtn.classList.remove("active-icon");
+        });
+    </script>
+
+</body>
+
+</html>
